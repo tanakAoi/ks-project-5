@@ -1,0 +1,8 @@
+.doc-content__sidebar {
+    border-right: 1px solid #555; // temp
+    border-left: 1px solid #555; // temp
+}
+
+.toc {
+    @extend .doc-content__sidebar;
+}

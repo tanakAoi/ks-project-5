@@ -1,0 +1,24 @@
+body {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+.doc-header,
+.doc-content,
+.doc-footer {
+    display: grid;
+    grid-template-columns: var(--grid-container);
+
+    &__inner {
+        grid-column: inner;
+    }
+}
+
+.doc-content {
+    min-height: 100vh; // temp
+
+    &__inner {
+        display: grid;
+        grid-template-columns: minmax(200px, 300px) minmax(0, 75rem) minmax(200px, 300px);
+    }
+}

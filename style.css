@@ -6,7 +6,8 @@
   --gap-m: 2rem;
   --gap-s: 1rem;
   --border-radius: 0px;
-  --color-dark: #222;
+  --color-dark: #111;
+  --color-dark-100: #222;
   --color-dark-200:#444;
   --color-dark-300:#666;
   --color-dark-500:#888;
@@ -32,8 +33,8 @@
   --color-light-700: #efead8;
   --color-light-800: #efead8;
   --color-light-900: #efead8;
-  --font-sans: "Arial", sans-serif;
-  --font-serif: "Georgia", serif;
+  --font-sans: "Noto Sans", ui-sans-serif, sans-serif;
+  --font-serif: "Noto Sans", ui-sans-serif, sans-serif;
   --line-height: 1.5;
   --font-scale: 1.25;
   --font-size: 1rem;
@@ -43,6 +44,9 @@
   --font-size-4: calc( var(--font-size-3) * var(--font-scale) );
   --font-size-5: calc( var(--font-size-4) * var(--font-scale) );
   --font-size-6: calc( var(--font-size-5) * var(--font-scale) );
+  --menu-height: 60px;
+  --page-inner: 90rem;
+  --grid-container: minmax(2rem, 1fr) [inner-start] minmax(0, var(--page-inner)) [inner-end] minmax(2rem, 1fr);
 }
 
 * {
@@ -82,20 +86,56 @@ li {
   line-height: var(--line-height);
 }
 
-.test {
+body {
   background-color: var(--color-dark);
   color: var(--color-light);
-  padding: 1rem 2rem;
-  border: 0;
-  border-radius: 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  display: inline-block;
-  text-decoration: none;
 }
-.test:hover {
-  background-color: var(--color-accent);
-  color: var(--color-light);
+
+.doc-header,
+.doc-content,
+.doc-footer {
+  display: grid;
+  grid-template-columns: var(--grid-container);
+}
+.doc-header__inner,
+.doc-content__inner,
+.doc-footer__inner {
+  grid-column: inner;
+}
+
+.doc-content {
+  min-height: 100vh;
+}
+.doc-content__inner {
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(0, 75rem) minmax(200px, 300px);
+}
+
+.doc-header {
+  height: var(--menu-height);
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  border-bottom: 1px solid #555;
+}
+.doc-header__inner {
+  background-color: red;
+}
+
+.doc-footer {
+  min-height: 100px;
+  background-color: var(--color-dark-100);
+}
+.doc-footer__inner {
+  background-color: green;
+}
+
+.doc-content__sidebar, .toc {
+  border-right: 1px solid #555;
+  border-left: 1px solid #555;
 }
 
 .hero {
