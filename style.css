@@ -75,8 +75,9 @@ p {
 }
 
 a {
-  color: var(--color-dark);
+  color: var(--color-light);
   text-decoration: none;
+  line-height: var(--line-height);
 }
 a:hover {
   color: var(--color-accent);
@@ -105,10 +106,12 @@ body {
 
 .doc-content {
   min-height: 100vh;
+  padding-top: var(--menu-height);
 }
 .doc-content__inner {
   display: grid;
   grid-template-columns: minmax(200px, 300px) minmax(0, 75rem) minmax(200px, 300px);
+  gap: 2rem;
 }
 
 .doc-header {
@@ -121,21 +124,35 @@ body {
   z-index: 99;
   border-bottom: 1px solid #555;
 }
-.doc-header__inner {
-  background-color: red;
+.sidebar-nav {
+  overflow-y: auto;
 }
 
 .doc-footer {
   min-height: 100px;
   background-color: var(--color-dark-100);
 }
-.doc-footer__inner {
-  background-color: green;
+.doc-content__sidebar, .toc {
+  height: calc(100vh - var(--menu-height));
+  display: grid;
+  grid-template-rows: 1fr 60px;
+  position: sticky;
+  top: var(--menu-height);
+  padding: 0 2rem 0 0;
 }
 
-.doc-content__sidebar, .toc {
-  border-right: 1px solid #555;
-  border-left: 1px solid #555;
+.toc {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 2rem;
+}
+
+.sidebar-settings {
+  border-top: 1px solid var(--color-dark-200);
+  height: 60px;
+  position: sticky;
+  bottom: 0;
+  align-self: end;
 }
 
 .hero {

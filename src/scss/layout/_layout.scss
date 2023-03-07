@@ -16,9 +16,11 @@ body {
 
 .doc-content {
     min-height: 100vh; // temp
+    padding-top: var(--menu-height);
 
     &__inner {
         display: grid;
         grid-template-columns: minmax(200px, 300px) minmax(0, 75rem) minmax(200px, 300px);
+        gap: 2rem;
     }
 }
